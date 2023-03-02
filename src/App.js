@@ -14,14 +14,16 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    axios.get(`http://localhost:6969/api/getAllStory`).then((res) => {
-      setstate(res.data.data);
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/jokes`).then((res) => {
+      setstate(res.data);
       setContent({
-        title: res.data.data[count].name,
-        desc: res.data.data[count].Des,
+        title: res.data[count].name,
+        desc: res.data[count].Des,
       });
+      console.log("check joke ?", res.data);
     });
   }, []);
+
   const handleFunny = () => {
     const arrLength = state.length;
     if (count === arrLength - 1) {
@@ -115,12 +117,11 @@ function App() {
       {/* Main */}
       <div>
         <div>
-          {/* <p style={{ fontWeight: "700px" }}>{content.title}</p> */}
           <p className="text-base py-12 px-[23rem] text-[#5f5f5f] text-left">
             {content.desc}
           </p>
 
-          <hr className="text-center w-2/5" />
+          <hr className="text-center " />
 
           <div className="flex justify-center gap-5 pt-12 pb-20">
             <button

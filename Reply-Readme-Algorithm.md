@@ -14,8 +14,7 @@ For example arr = [1, 3, 5, 7, 9], . Our minimum sum is 1 + 3 + 5 + 7 = 16 and o
 We would print
 16 24
 
-//Reply:
-
+// Reply:
 let numbers = [1,3,5,7,9]
 let sum = numbers.reduce((a, b) => a + b)
 let maxNumber = Math.max(...numbers)
@@ -37,7 +36,7 @@ Print two space-separated long integers denoting the respective minimum and maxi
 be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit
 integer.)
 
-//Reply
+// Reply:
 
 function miniMaxSum(array) {
     var sum = array[0],
